@@ -102,6 +102,7 @@ const FIRE=0;
                 continue
             }
 			var combinations=0
+            var triedcombos=0
 			for (var combo of combos) {
 				var driver1=ConvertDriver(temp.substr(0,3))
 				var driver2=ConvertDriver(temp.substr(3,3))
@@ -125,6 +126,10 @@ const FIRE=0;
 				if (matches==3) {
 					combinations++
 				}
+                triedcombos++
+                if (combos.length-triedcombos+combinations<maxcombos) {
+                    continue;
+                }
 			}
 			if (maxcombos<combinations) {
 				maxcombos=combinations
