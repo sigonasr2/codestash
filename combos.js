@@ -84,7 +84,7 @@ const FIRE=0;
                 for (var i=0;i<a.length;i++) {
                     prettyStr+=((i!=0)?",":"")+GetCommonName(a[i]);
                 }
-                finallArr.push(prettyStr)
+                finalArr.push(prettyStr)
             }
             return finalArr
         }
