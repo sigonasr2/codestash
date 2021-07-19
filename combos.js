@@ -128,7 +128,7 @@ const FIRE=0;
 				}
                 triedcombos++
                 if (combos.length-triedcombos+combinations<maxcombos) {
-                    continue;
+                    break;
                 }
 			}
 			if (maxcombos<combinations) {
