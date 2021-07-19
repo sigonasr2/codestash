@@ -51,7 +51,7 @@ const FIRE=0;
 		var maxcombos=0
 		var combolist=[]
 		
-		for (var i=0;i<=9;i++) {
+		for (var i=0;i<9;i++) {
 			maxcode+=String(ICE)
 		}
 		
