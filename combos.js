@@ -139,4 +139,4 @@ const FIRE=0;
 				combolist.push(temp)
 			}
 		}
-	console.log(JSON.stringify({maxcombo:maxcombos,list:PrettyList(combolist)}))
+	console.log(JSON.stringify({maxcombo:maxcombos,count:combolist.length,list:PrettyList(combolist)}))
