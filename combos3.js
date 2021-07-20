@@ -102,6 +102,7 @@ const FIRE=0;
             if (!temp) {
                 continue
             }
+			const PYRAMYTHRA=false //Enables PYRA/MYTHRA calculations in slot 1 of Driver 1.
 			var combinations={}
 			for (var combo of combos) {
 				if (!(prettyNames[combo[2]] in combinations)) {
@@ -115,7 +116,7 @@ const FIRE=0;
 					var matches=0;
 					var driver1performedon=0;
 					for (var ind=0;ind<3;ind++) {
-						if (driver1.length>0&&(combo[ind]==FIRE||combo[ind]==LIGHT)) {
+						if (PYRAMYTHRA&&driver1.length>0&&(combo[ind]==FIRE||combo[ind]==LIGHT)) {
 							matches++;
 							driver1=[]
 							driver1performedon=ind
@@ -125,11 +126,11 @@ const FIRE=0;
 							driver1=[]
 							driver1performedon=ind
 						} else
-						if (ind==2&&driver1performedon==0&&driver4.length>0&&(combo[ind]==FIRE||combo[ind]==LIGHT)) {
+						if (PYRAMYTHRA&&ind==2&&driver1performedon==0&&driver4.length>0&&(combo[ind]==FIRE||combo[ind]==LIGHT)) {
 							matches++;
 							driver4=[]
 						} else
-						if (ind==2&&driver1performedon==0&&driver4.includes(combo[ind])) {
+						if (PYRAMYTHRA&&ind==2&&driver1performedon==0&&driver4.includes(combo[ind])) {
 							matches++;
 							driver4=[]
 						} else
@@ -149,10 +150,10 @@ const FIRE=0;
 			}
 			if (Object.keys(combinations).length>maxcombos) {
 				maxcombos=Object.keys(combinations).length
-				combolist=[{drivers:temp.split('').map((ele,i)=>(i==0)?GetCommonName(-1):GetCommonName(ele)),combos:combinations}]
+				combolist=[{drivers:temp.split('').map((ele,i)=>(i==0&&PYRAMYTHRA)?GetCommonName(-1):GetCommonName(ele)),combos:combinations}]
 			} else
 			if (Object.keys(combinations).length==maxcombos) {
-				combolist.push({drivers:temp.split('').map((ele,i)=>(i==0)?GetCommonName(-1):GetCommonName(ele)),combos:combinations})
+				combolist.push({drivers:temp.split('').map((ele,i)=>(i==0&&PYRAMYTHRA)?GetCommonName(-1):GetCommonName(ele)),combos:combinations})
 			}
 		}
 	console.log(JSON.stringify({maxcombo:maxcombos,count:combolist.length,list:combolist}))
