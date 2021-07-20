@@ -109,6 +109,8 @@ const FIRE=0;
 					driver1[0]=-1
 					var driver2=ConvertDriver(temp.substr(3,3))
 					var driver3=ConvertDriver(temp.substr(6,3))
+					var driver4=ConvertDriver(temp.substr(0,3))
+					driver4[0]=-1
 					//See if any elements match up. If they do, then add 1 to the max combo count.
 					var matches=0;
 					for (var ind=0;ind<3;ind++) {
@@ -119,6 +121,14 @@ const FIRE=0;
 						if (driver1.includes(combo[ind])) {
 							matches++;
 							driver1=[]
+						} else
+						if (driver4.length>0&&(combo[ind]==FIRE||combo[ind]==LIGHT)) {
+							matches++;
+							driver4=[]
+						} else
+						if (driver4.includes(combo[ind])) {
+							matches++;
+							driver4=[]
 						} else
 						if (driver2.includes(combo[ind])) {
 							matches++;
