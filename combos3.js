@@ -113,20 +113,23 @@ const FIRE=0;
 					driver4[0]=-1
 					//See if any elements match up. If they do, then add 1 to the max combo count.
 					var matches=0;
+					var driver1performedon=0;
 					for (var ind=0;ind<3;ind++) {
 						if (driver1.length>0&&(combo[ind]==FIRE||combo[ind]==LIGHT)) {
 							matches++;
 							driver1=[]
+							driver1performedon=ind
 						} else
 						if (driver1.includes(combo[ind])) {
 							matches++;
 							driver1=[]
+							driver1performedon=ind
 						} else
-						if (driver4.length>0&&(combo[ind]==FIRE||combo[ind]==LIGHT)) {
+						if (ind==2&&driver1performedon==0&&driver4.length>0&&(combo[ind]==FIRE||combo[ind]==LIGHT)) {
 							matches++;
 							driver4=[]
 						} else
-						if (driver4.includes(combo[ind])) {
+						if (ind==2&&driver1performedon==0&&driver4.includes(combo[ind])) {
 							matches++;
 							driver4=[]
 						} else
