@@ -1,11 +1,11 @@
 #define OLC_PGE_APPLICATION
-#include "pixelGameEngine.h"
+#include "olcPixelGameEngine.h"
 #include "data.h"
 #define OLC_PGEX_SPLASHSCREEN
-#include "splash.h"
+#include "olcPGEX_SplashScreen.h"
 #include <queue>
 #define OLC_SOUNDWAVE
-#include "soundwaveEngine.h"
+#include "olcSoundWaveEngine.h"
 
 using namespace olc;
 
